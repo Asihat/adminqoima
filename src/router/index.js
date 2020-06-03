@@ -35,7 +35,10 @@ const routes = [
     path: '/categories',
     name: 'categories',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Categories')
   },
@@ -43,7 +46,10 @@ const routes = [
     path: '/detail-record',
     name: 'detail-record',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Detail-record')
   },
@@ -51,7 +57,10 @@ const routes = [
     path: '/history',
     name: 'history',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/History')
   },
@@ -59,7 +68,10 @@ const routes = [
     path: '/planning',
     name: 'planning',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Planning')
   },
@@ -67,7 +79,10 @@ const routes = [
     path: '/profile',
     name: 'profile',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Profile')
   },
@@ -75,7 +90,10 @@ const routes = [
     path: '/record',
     name: 'record',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Record')
   },
@@ -83,7 +101,10 @@ const routes = [
     path: '/register',
     name: 'register',
     meta: {
-      layout: 'empty'
+      layout: 'empty',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Register')
   },
@@ -91,9 +112,34 @@ const routes = [
     path: '/items/:id',
     name: 'item',
     meta: {
-      layout: 'main'
+      layout: 'main',
+      middleware: [
+        auth
+      ]
     },
     component: () => import('../views/Item')
+  },
+  {
+    path: '/changepassword',
+    name: 'changepassword',
+    meta: {
+      layout: 'main',
+      middleware: [
+        auth
+      ]
+    },
+    component: () => import('../views/ChangePassword')
+  },
+  {
+    path: '/change/qoima/information',
+    name: 'changeqoimainformation',
+    meta: {
+      layout: 'main',
+      middleware: [
+        auth
+      ]
+    },
+    component: () => import('../views/ChangeQoimaInformation')
   }
 ]
 

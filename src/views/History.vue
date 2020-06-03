@@ -1,23 +1,33 @@
 <template>
-  <div>
+  <div v-if="items">
     <div class="page-title">
       <h3>Предметы</h3>
     </div>
 
-    <section>
+    <section v-if="!loading">
+      <div class="progress">
+        <div class="determinate" style="width: 70%"></div>
+      </div>
+    </section>
+
+    <section v-else>
       <ItemsList
         v-bind:items="items"
       />
     </section>
-
+    <br>
     <div class="pagination">
       <button class="btn btn-default" v-on:click="fetchPaginateUsers(pagination.prev_page_url)"
-              :disabled="!pagination.prev_page_url">
+              :disabled="!pagination.prev_page_url"
+              style="margin: 5px"
+      >
         Previos
       </button>
       <span>Page {{pagination.current_page}} of {{ pagination.last_page}}</span>
       <button class="btn btn-default" v-on:click="fetchPaginateUsers(pagination.next_page_url)"
-              :disabled="!pagination.next_page_url">
+              :disabled="!pagination.next_page_url"
+              style="margin: 5px"
+      >
         Next
       </button>
     </div>
@@ -36,7 +46,9 @@
       return {
         items: null,
         url: '/get/listofitems',
-        pagination: []
+        pagination: [],
+        loading: true,
+        token: '',
       }
     },
     computed: {
@@ -46,24 +58,25 @@
       }),
     },
     mounted() {
+      this.token = this.user.token
       axios.post(this.url, {
-        token: this.user.token
+        token: this.token
       }).then(response => {
         this.items = response.data.items.data
         this.makePagination(response.data.items)
-        console.log(response.data.items)
-        console.log(this.items)
+        this.loading = true
       })
     },
     methods: {
       getItems() {
+        this.token = this.user.token
         axios.post(this.url, {
-          token: this.user.token
+          token: this.token
         }).then(response => {
           this.items = response.data.items.data
           this.makePagination(response.data.items)
-          console.log(response.data.items)
           console.log(this.items)
+          this.loading = true
         })
       },
 

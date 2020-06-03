@@ -15,10 +15,10 @@
       return {
         datacollection: {
           //Data to be represented on x-axis
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
           datasets: [
             {
-              label: 'Data One',
+              label: 'Вещи',
               backgroundColor: '#f87979',
               pointBackgroundColor: 'white',
               borderWidth: 1,

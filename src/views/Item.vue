@@ -14,7 +14,17 @@
     <p class="attr">Category:</p>
     <p>{{ item.category }}</p>
     <p class="attr">Photo:</p>
-    <input type="text" v-model="item.photo">
+    <form action="#">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+    </form>
     <p class="attr">Status:</p>
     <input type="text" v-model="item.status">
     <p class="attr">Updated at:</p>
@@ -58,7 +68,6 @@
         this.categories = response.data.categories
         this.item = response.data.item
         this.loading = false
-        console.log(this.categories)
         console.log('loaded')
       })
 
@@ -84,8 +93,8 @@
           updated_at: this.item.updated_at
         }
         console.log(formData)
-        axios.post('/update/item', formData).then(response=>{
-          console.log(response)
+        axios.post('/update/item', formData).then( ()=>{
+
         }).catch(e => {
           console.log("error", e)
         })
@@ -102,8 +111,7 @@
           id: this.item.id
         }
 
-        axios.post('/delete/item', formData).then(response=> {
-          console.log(response)
+        axios.post('/delete/item', formData).then(()=> {
           this.$router.push('history')
         })
       }

@@ -29,15 +29,12 @@ export default {
   },
   actions: {
     async signIn({dispatch}, credential) {
-      console.log('sign in')
-      console.log(credential)
       let response = await axios.post('/signin', {
         email: credential.email,
         password: credential.password
-      },)
-
-      console.log('response')
-      console.log(response)
+      },).catch((e) => {
+        console.log(e)
+      })
 
       return dispatch('attempt', response.data.token)
     },
@@ -61,7 +58,6 @@ export default {
           commit('SET_USER', response.data.result.admin)
         })
       } catch (e) {
-        console.log('Failed')
         commit('SET_TOKEN', null)
         commit('SET_USER', null)
       }

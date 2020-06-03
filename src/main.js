@@ -13,8 +13,8 @@ require('@/store/subscriber')
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://qoima.com/api/admin'
-//axios.defaults.baseURL = 'http://laravel.memento-mori.site/api/admin'
+//axios.defaults.baseURL = 'http://qoima.com/api/admin'
+axios.defaults.baseURL = 'https://laravel.memento-mori.site/api/admin'
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)

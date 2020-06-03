@@ -22,6 +22,18 @@
         </div>
       </div>
 
+      <div class="col s12 m6 l4">
+        <div class="card light-green bill-card">
+          <div class="card-content white-text" >
+            <span class="card-title"><a href="#" @click.prevent="money_off()">Перевести денег на счет</a></span>
+            <div class="input-field">
+              <i class="material-icons prefix">money_off</i>
+              <input id="money_off" type="tel" class="validate">
+              <label for="money_off">Введите сумму</label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -44,6 +56,11 @@
       axios.get('/total/sum').then(response => {
         this.sum = response.data.sum
       })
+    },
+    methods: {
+      money_off() {
+        window.M.toast({html: 'Это в разработке'})
+      }
     }
   }
 </script>

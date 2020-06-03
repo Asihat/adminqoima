@@ -20,7 +20,6 @@
           type="number"
         >
         <label for="amount">Сумма</label>
-        <span class="helper-text invalid">amount пароль</span>
       </div>
 
       <div class="input-field">
@@ -29,8 +28,6 @@
           type="text"
         >
         <label for="description">Описание</label>
-        <span
-          class="helper-text invalid">description пароль</span>
       </div>
 
       <div class="input-field">
@@ -38,32 +35,40 @@
           id="description4"
           type="text"
         >
-        <label for="description">Описание</label>
-        <span
-          class="helper-text invalid">description пароль</span>
+        <label for="description">Имя</label>
       </div>
       <div class="input-field">
         <input
           id="description3"
           type="text"
         >
-        <label for="description">Описание</label>
-        <span
-          class="helper-text invalid">description пароль</span>
+        <label for="description">Статус</label>
       </div>
       <div class="input-field">
         <input
           id="description2"
           type="text"
         >
-        <label for="description">Описание</label>
-        <span
-          class="helper-text invalid">description пароль</span>
+        <label for="description">ИД клиента</label>
       </div>
-      <button class="btn waves-effect waves-light" type="submit">
+      <button class="btn waves-effect waves-light" type="submit" @click.prevent="additem">
         Создать
         <i class="material-icons right">send</i>
       </button>
     </form>
   </div>
 </template>
+
+
+<script>
+  export default {
+    name: 'newrecord',
+    methods: {
+      additem() {
+        setTimeout(() => {
+          window.M.toast({html: 'Предмет добавлен'})
+        }, 800)
+      }
+    }
+  }
+</script>

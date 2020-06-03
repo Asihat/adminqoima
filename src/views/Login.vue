@@ -88,9 +88,8 @@
           this.$router.replace({
             name: 'Home'
           })
-        }).catch(() => {
-          console.log('Failed')
-          console.log('This is problem')
+        }).catch((e) => {
+          console.log(e)
         })
 
       }

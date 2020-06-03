@@ -48,7 +48,9 @@
       date: new Date(),
       interval: null,
       dropdown: null,
-      admin: '',
+      admin: {
+        name: '',
+      },
     }),
     computed: {
       ...mapGetters({
@@ -78,7 +80,7 @@
       this.dropdown = window.M.Dropdown.init(this.$refs.dropdown, {})
     },
     beforeDestroy() {
-      console.log('before destroy')
+
       clearInterval(this.interval)
       if (this.dropdown && this.dropdown.destroy) {
         this.dropdown.destroy()

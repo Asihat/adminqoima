@@ -23,12 +23,16 @@
     </form>
     <br>
     <button class="btn">
-      Изменить пароль
+      <router-link to="/changepassword" class="black-text">
+        Изменить пароль
+      </router-link>
     </button>
     <br>
     <br>
     <button class="btn">
-      Изменить информацию о складе
+      <router-link to="/change/qoima/information" class="black-text">
+        Изменить информацию о складе
+      </router-link>
     </button>
 
   </div>
@@ -57,15 +61,13 @@
     },
     methods: {
       submitHandle() {
-        console.log('update')
         axios.post('/change/name', {
           token: this.user.token,
           name: this.name,
           id: this.user.id,
-        }).then(response => {
-          console.log(response.data)
+        }).then(() => {
           location.reload()
-        }).catch(e=> {
+        }).catch(e => {
           console.log("error", e)
         })
       }
